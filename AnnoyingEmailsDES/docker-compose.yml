@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  annoyingemailsdes.client.uwp:
+    image: annoyingemailsdes.client.uwp
+    build:
+      context: .\AnnoyingEmailsDES.Client.UWP
+      dockerfile: Dockerfile
