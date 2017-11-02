@@ -83,6 +83,7 @@ namespace AnnoyingEmailsDES.Client.UWP
             var registry = new Registry();
             registry.IncludeRegistry<PresentationRegistry>();
             registry.IncludeRegistry<InfrastructureRegistry>();
+            registry.IncludeRegistry<MapperRegistry>();
             registry.IncludeRegistry<ServicesRegistry>();
             registry.IncludeRegistry<SimulatorRegistry>();
 
