@@ -1,5 +1,6 @@
 ﻿using SQLite.Net.Attributes;
 using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 
 namespace AnnoyingEmailsDES.Client.Domain.Entities
@@ -14,7 +15,9 @@ namespace AnnoyingEmailsDES.Client.Domain.Entities
         [AutoIncrement]
         public int Id { get; set; }
 
-        [OneToMany]
+        public DateTime SimulationDate { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeInsert)]
         public List<MailEntity> Mails { get; set; }
     }
 }

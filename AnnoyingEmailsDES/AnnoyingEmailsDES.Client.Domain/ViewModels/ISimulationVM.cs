@@ -11,6 +11,7 @@ namespace AnnoyingEmailsDES.Client.Domain.ViewModels
     public interface ISimulationVM
     {
         Action DbErrorAction { get; set; }
+        Action ConnectionErrorAction { get; set; }
         Action<IHistoryVM> HistoryAction { get; set; }
 
         ICommand ShowHistoryCommand { get; }

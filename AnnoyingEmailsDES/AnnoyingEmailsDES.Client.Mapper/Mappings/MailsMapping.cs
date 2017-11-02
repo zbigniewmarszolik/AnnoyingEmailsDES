@@ -1,4 +1,5 @@
 ﻿using AnnoyingEmailsDES.Client.Domain.DTOs;
+using AnnoyingEmailsDES.Client.Domain.Entities;
 using AnnoyingEmailsDES.Client.Domain.Mappings;
 using AnnoyingEmailsDES.Client.Domain.Models;
 using AutoMapper;
@@ -29,6 +30,13 @@ namespace AnnoyingEmailsDES.Client.Mapper.Mappings
             var mailDto = _mapper.Map<Mail, MailDTO>(mail);
 
             return mailDto;
+        }
+
+        public MailEntity ModelToEntity(Mail mail)
+        {
+            var mailEntity = _mapper.Map<Mail, MailEntity>(mail);
+
+            return mailEntity;
         }
     }
 }

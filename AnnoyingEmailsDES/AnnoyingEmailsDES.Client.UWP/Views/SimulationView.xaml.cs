@@ -23,6 +23,7 @@ namespace AnnoyingEmailsDES.Client.UWP.Views
             DataContext = vm;
 
             vm.DbErrorAction = PopDbErrorAsync;
+            vm.ConnectionErrorAction = PopServerErrorAsync;
 
             vm.HistoryAction = x => History(x);
 
@@ -44,6 +45,20 @@ namespace AnnoyingEmailsDES.Client.UWP.Views
                 async () =>
                 {
                     var dialog = new MessageDialog("Error connecting to the local database!", "SQLite ERROR");
+                    dialog.Commands.Add(okButton);
+                    await dialog.ShowAsync();
+                });
+        }
+
+        //Showing the server connection error dialog.
+        private async void PopServerErrorAsync()
+        {
+            UICommand okButton = new UICommand("OK");
+
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                async () =>
+                {
+                    var dialog = new MessageDialog("Error connecting to the remote Windows Communication Foundation server!", "WCF Service ERROR");
                     dialog.Commands.Add(okButton);
                     await dialog.ShowAsync();
                 });

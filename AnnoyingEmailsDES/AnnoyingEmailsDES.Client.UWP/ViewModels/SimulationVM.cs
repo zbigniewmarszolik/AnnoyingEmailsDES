@@ -1,4 +1,5 @@
 ﻿using AnnoyingEmailsDES.Client.Domain.Entities;
+using AnnoyingEmailsDES.Client.Domain.Mappings;
 using AnnoyingEmailsDES.Client.Domain.Models;
 using AnnoyingEmailsDES.Client.Domain.Repositories;
 using AnnoyingEmailsDES.Client.Domain.Services;
@@ -26,11 +27,13 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
         private IContainer _container { get; set; }
 
         public Action DbErrorAction { get; set; }
+        public Action ConnectionErrorAction { get; set; }
         public Action<IHistoryVM> HistoryAction { get; set; }
 
         private readonly ISimulationsRepository _simulationsRepository;
         private readonly IMailSimulator _mailSimulator;
         private readonly ISimulationInputService _simulationInputService;
+        private readonly IMailsMapping _mailsMapping;
         private readonly FriendsHelper _friendsHelper;
         private readonly MailsHelper _mailsHelper;
 
@@ -100,6 +103,7 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
             (IContainer container,
             ISimulationsRepository simulationsRepository,
             IMailSimulator mailSimulator,
+            IMailsMapping mailsMapping,
             ISimulationInputService simulationInputService,
             FriendsHelper friendsHelper,
             MailsHelper mailsHelper)
@@ -107,11 +111,13 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
             _container = container;
             _simulationsRepository = simulationsRepository;
             _mailSimulator = mailSimulator;
+            _mailsMapping = mailsMapping;
             _simulationInputService = simulationInputService;
             _friendsHelper = friendsHelper;
             _mailsHelper = mailsHelper;
 
             _simulationsRepository.DatabaseErrorAction = DbError;
+            _simulationInputService.ServerErrorAction = SrvError;
 
             _receivers = new List<Friend>();
             _mailEvents = new List<Mail>();
@@ -145,8 +151,19 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
         //Connecting to the server to obtain topology and scenario inputs for the simulation.
         private async void OnDownloadClicked()
         {
-            _friendsGroup = await _simulationInputService.GetAllGroupMembers();
-            _firstMail = await _simulationInputService.GetStartingScenario();
+            IsHistoryEnabled = false;
+            IsEventRunning = true;
+
+            try
+            {
+                _friendsGroup = await _simulationInputService.GetAllGroupMembers();
+                _firstMail = await _simulationInputService.GetStartingScenario();
+            }
+            catch(Exception e)
+            {
+                InitEnableValues();
+                return;
+            }
 
             IsDownloadEnabled = false;
 
@@ -155,6 +172,8 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
                 _friendsGroup[i] = _friendsHelper.AssignFriendProperties(_friendsGroup[i]);
             }
 
+            IsHistoryEnabled = true;
+            IsEventRunning = false;
             IsStartEnabled = true;
         }
 
@@ -191,19 +210,15 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
 
             var sim = new SimulationEntity()
             {
+                SimulationDate = DateTime.Now,
                 Mails = new List<MailEntity>()
             };
 
             foreach (var item in _mailEvents)
             {
-                var mailDataModel = new MailEntity
-                {
-                    InternalId = item.Id,
-                    SenderId = item.SenderId,
-                    ReceiverId = item.ReceiverId
-                };
+                var mailEntity = _mailsMapping.ModelToEntity(item);
 
-                sim.Mails.Add(mailDataModel);
+                sim.Mails.Add(mailEntity);
             }
 
             _simulationsRepository.CreateSimulation(sim);
@@ -268,6 +283,12 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
         private void DbError()
         {
             DbErrorAction();
+        }
+
+        //Method responsible for showing the server connection error box.
+        private void SrvError()
+        {
+            ConnectionErrorAction();
         }
     }
 }

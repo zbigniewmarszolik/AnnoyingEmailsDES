@@ -108,7 +108,8 @@
   <ItemGroup>
     <Compile Include="Mappings\FriendsMapping.cs" />
     <Compile Include="Mappings\MailsMapping.cs" />
-    <Compile Include="Profiles\ServicesProfile.cs" />
+    <Compile Include="Mappings\SimulationsMapping.cs" />
+    <Compile Include="Profiles\MapperProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\AnnoyingEmailsDES.Client.Mapper.rd.xml" />
   </ItemGroup>

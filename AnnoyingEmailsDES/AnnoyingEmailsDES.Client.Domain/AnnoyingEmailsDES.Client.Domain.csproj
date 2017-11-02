@@ -113,8 +113,10 @@
     <Compile Include="Factories\IFactory.cs" />
     <Compile Include="Mappings\IFriendsMapping.cs" />
     <Compile Include="Mappings\IMailsMapping.cs" />
+    <Compile Include="Mappings\ISimulationsMapping.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\Mail.cs" />
+    <Compile Include="Models\Simulation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ISimulationsRepository.cs" />
     <Compile Include="Services\ISimulationInputService.cs" />

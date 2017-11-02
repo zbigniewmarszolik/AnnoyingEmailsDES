@@ -5,6 +5,7 @@ using AnnoyingEmailsDES.Client.Domain.Services;
 using AnnoyingEmailsDES.Client.Services.Proxies;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace AnnoyingEmailsDES.Client.Services.Services
 {
@@ -13,6 +14,8 @@ namespace AnnoyingEmailsDES.Client.Services.Services
      */
     public class SimulationInputService : ServiceBase, ISimulationInputService
     {
+        public Action ServerErrorAction { get; set; }
+
         private readonly IFriendsMapping _friendsMapping;
         private readonly IMailsMapping _mailsMapping;
 
@@ -32,7 +35,14 @@ namespace AnnoyingEmailsDES.Client.Services.Services
 
             await Task.Run(() =>
             {
-                dtos = client.ProvideTopologyInput();
+                try
+                {
+                    dtos = client.ProvideTopologyInput();
+                }
+                catch(Exception e)
+                {
+                    ServerErrorAction();
+                }
             });
 
             foreach(var item in dtos)
@@ -53,7 +63,14 @@ namespace AnnoyingEmailsDES.Client.Services.Services
 
             await Task.Run(() =>
             {
-                dto = client.ProvideScenarioInput();
+                try
+                {
+                    dto = client.ProvideScenarioInput();
+                }
+                catch(Exception e)
+                {
+                    ServerErrorAction();
+                }
             });
 
             var model = _mailsMapping.DataTransferObjectToModel(dto);

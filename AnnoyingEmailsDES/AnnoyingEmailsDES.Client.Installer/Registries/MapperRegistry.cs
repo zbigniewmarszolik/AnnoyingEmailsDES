@@ -19,6 +19,7 @@ namespace AnnoyingEmailsDES.Client.Installer.Registries
 
             For<IFriendsMapping>().Use<FriendsMapping>();
             For<IMailsMapping>().Use<MailsMapping>();
+            For<ISimulationsMapping>().Use<SimulationsMapping>();
 
             For<IMapper>().Use(_mapper).Singleton();
         }
@@ -27,7 +28,7 @@ namespace AnnoyingEmailsDES.Client.Installer.Registries
         {
             var config = new MapperConfiguration(c =>
             {
-                c.AddProfile<ServicesProfile>();
+                c.AddProfile<MapperProfile>();
             });
 
             _mapper = config.CreateMapper();
