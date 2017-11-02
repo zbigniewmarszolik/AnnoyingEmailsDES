@@ -26,6 +26,8 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
             _simulationsRepository = simulationsRepository;
 
             _simulationsRepository.DatabaseErrorAction = DbError;
+
+            var test = _simulationsRepository.ReadSimulations();
         }
 
 

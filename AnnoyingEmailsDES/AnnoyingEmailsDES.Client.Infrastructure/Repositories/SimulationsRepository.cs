@@ -27,7 +27,7 @@ namespace AnnoyingEmailsDES.Client.Infrastructure.Repositories
         {
             try
             {
-                _connection.Insert(simulation);
+                _connection.InsertWithChildren(simulation);
             }
             catch (Exception ex)
             {

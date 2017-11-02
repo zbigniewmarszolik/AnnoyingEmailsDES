@@ -1,5 +1,5 @@
 ﻿using ServerDES.Core.Services;
-using ServerDES.Lib.Services;
+using ServerDES.Services.Services;
 using System;
 using System.ServiceModel;
 

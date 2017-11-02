@@ -5,7 +5,7 @@ using System.ServiceModel;
 namespace ServerDES.Core.Services
 {
     /*
-     * MailSimulationService's inteface-based contract..
+     * MailSimulationService's inteface-based contract.
      */
     [ServiceContract]
     public interface IMailSimulationService

@@ -47,8 +47,10 @@
   <ItemGroup>
     <Compile Include="DTOs\FriendDTO.cs" />
     <Compile Include="DTOs\MailDTO.cs" />
+    <Compile Include="Managers\IFileManager.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\Mail.cs" />
+    <Compile Include="Parsers\ITextParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IMailSimulationService.cs" />
   </ItemGroup>

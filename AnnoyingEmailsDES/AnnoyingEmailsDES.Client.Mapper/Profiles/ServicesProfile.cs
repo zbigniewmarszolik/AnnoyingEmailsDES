@@ -4,6 +4,9 @@ using AutoMapper;
 
 namespace AnnoyingEmailsDES.Client.Mapper.Profiles
 {
+    /*
+     * Class with AutoMapper profiles.
+     */
     public class ServicesProfile : Profile
     {
         public ServicesProfile()
