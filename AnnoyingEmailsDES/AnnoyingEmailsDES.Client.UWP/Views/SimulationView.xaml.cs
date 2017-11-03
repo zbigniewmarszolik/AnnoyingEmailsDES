@@ -44,7 +44,7 @@ namespace AnnoyingEmailsDES.Client.UWP.Views
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var dialog = new MessageDialog("Error connecting to the local database!", "SQLite ERROR");
+                    var dialog = new MessageDialog("Could not connect to the local database.", "ERROR");
                     dialog.Commands.Add(okButton);
                     await dialog.ShowAsync();
                 });
@@ -58,7 +58,7 @@ namespace AnnoyingEmailsDES.Client.UWP.Views
             await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                 async () =>
                 {
-                    var dialog = new MessageDialog("Error connecting to the remote Windows Communication Foundation server!", "WCF Service ERROR");
+                    var dialog = new MessageDialog("Could not connect to the remote server.", "ERROR");
                     dialog.Commands.Add(okButton);
                     await dialog.ShowAsync();
                 });
