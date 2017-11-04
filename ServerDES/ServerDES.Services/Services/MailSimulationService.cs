@@ -4,9 +4,6 @@ using ServerDES.Core.Managers;
 using ServerDES.Core.Models;
 using ServerDES.Core.Parsers;
 using ServerDES.Core.Services;
-using ServerDES.Data.Managers;
-using ServerDES.Data.Parsers;
-using ServerDES.Services.Factories;
 using System.Collections.Generic;
 
 namespace ServerDES.Services.Services
@@ -19,14 +16,12 @@ namespace ServerDES.Services.Services
         private readonly IFileManager _fileManager;
         private readonly ITextParser _textParser;
         private readonly IMapper _mapper;
-        private readonly AutoMapperFactory _mapperFactory;
 
-        public MailSimulationService()
+        public MailSimulationService(IFileManager fileManager, ITextParser textParser, IMapper mapper)
         {
-            _fileManager = new FileManager();
-            _textParser = new TextParser();
-            _mapperFactory = new AutoMapperFactory();
-            _mapper = _mapperFactory.ProduceMapper();
+            _fileManager = fileManager;
+            _textParser = textParser;
+            _mapper = mapper;
         }
 
         public IList<FriendDTO> ProvideTopologyInput()

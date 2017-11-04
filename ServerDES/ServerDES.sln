@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDES.Services", "Serve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDES.Data", "ServerDES.Data\ServerDES.Data.csproj", "{91540160-0A06-4AF7-91D1-0512E51295FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDes.Installer", "ServerDes.Installer\ServerDes.Installer.csproj", "{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{91540160-0A06-4AF7-91D1-0512E51295FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91540160-0A06-4AF7-91D1-0512E51295FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91540160-0A06-4AF7-91D1-0512E51295FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

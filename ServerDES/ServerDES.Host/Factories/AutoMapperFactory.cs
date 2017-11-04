@@ -2,8 +2,11 @@
 using ServerDES.Core.DTOs;
 using ServerDES.Core.Models;
 
-namespace ServerDES.Services.Factories
+namespace ServerDES.Host.Factories
 {
+    /*
+     * AutoMapper factory.
+     */
     public class AutoMapperFactory
     {
         public IMapper ProduceMapper()

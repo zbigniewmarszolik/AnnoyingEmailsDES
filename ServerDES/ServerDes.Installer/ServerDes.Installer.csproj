@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F6D8802A-B425-4B72-B712-61AFE7703BC2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>ServerDES.Host</RootNamespace>
-    <AssemblyName>ServerDES.Host</AssemblyName>
+    <ProjectGuid>{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServerDes.Installer</RootNamespace>
+    <AssemblyName>ServerDes.Installer</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -35,19 +33,12 @@
     <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac.Integration.Wcf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Wcf.4.0.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,15 +47,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Factories\AutoMapperFactory.cs" />
-    <Compile Include="Hosts\HostBase.cs" />
-    <Compile Include="Hosts\MailSimulationHost.cs" />
-    <Compile Include="Modules\ServicesModule.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Modules\DataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -72,9 +58,9 @@
       <Project>{D4D29D87-542C-455B-9CF7-EB839A8F3D1C}</Project>
       <Name>ServerDES.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServerDes.Installer\ServerDes.Installer.csproj">
-      <Project>{70BF4347-D7BD-4A91-BD2A-97A03EEC43A1}</Project>
-      <Name>ServerDes.Installer</Name>
+    <ProjectReference Include="..\ServerDES.Data\ServerDES.Data.csproj">
+      <Project>{91540160-0A06-4AF7-91D1-0512E51295FC}</Project>
+      <Name>ServerDES.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServerDES.Services\ServerDES.Services.csproj">
       <Project>{5948973F-0868-49D6-BA5E-45914A89CE43}</Project>
