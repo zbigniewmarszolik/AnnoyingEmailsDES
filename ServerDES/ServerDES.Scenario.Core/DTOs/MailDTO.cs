@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace AnnoyingEmailsDES.Client.Domain.DTOs
+namespace ServerDES.Scenario.Core.DTOs
 {
     /*
-     * Friend Data Transfer Object.
+     * Mail Data Transfer Object.
      */
     [DataContract(Namespace = "des.mail")]
     public class MailDTO

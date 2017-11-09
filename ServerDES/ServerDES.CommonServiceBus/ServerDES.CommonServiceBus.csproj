@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5A8CF44-CC4D-4CF8-933F-E3B12CF81B3B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ServerDES.CommonServiceBus</RootNamespace>
+    <AssemblyName>ServerDES.CommonServiceBus</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Wcf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Wcf.4.0.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factories\AutoMapperFactory.cs" />
+    <Compile Include="MicroserviceHosts\MailScenarioHost.cs" />
+    <Compile Include="MicroserviceHosts\MailTopologyHost.cs" />
+    <Compile Include="MicroserviceHosts\MicroserviceHostBase.cs" />
+    <Compile Include="Modules\ScenarioModule.cs" />
+    <Compile Include="Modules\TopologyModule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServerDES.Scenario.Core\ServerDES.Scenario.Core.csproj">
+      <Project>{bd75f7a1-9570-4e65-b556-e846be2d6b18}</Project>
+      <Name>ServerDES.Scenario.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerDES.Scenario.Installer\ServerDES.Scenario.Installer.csproj">
+      <Project>{7af3804e-bb72-4060-8499-e5824a88d9a6}</Project>
+      <Name>ServerDES.Scenario.Installer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerDES.Scenario.Microservice\ServerDES.Scenario.Microservice.csproj">
+      <Project>{24270609-45c3-4614-b9b6-4af8929a6e45}</Project>
+      <Name>ServerDES.Scenario.Microservice</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerDES.Topology.Core\ServerDES.Topology.Core.csproj">
+      <Project>{6b9b6c8c-59c4-4dbe-853b-6b088df27539}</Project>
+      <Name>ServerDES.Topology.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerDES.Topology.Installer\ServerDES.Topology.Installer.csproj">
+      <Project>{0739cad0-a183-4de8-9e36-f04c67673f11}</Project>
+      <Name>ServerDES.Topology.Installer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServerDES.Topology.Microservice\ServerDES.Topology.Microservice.csproj">
+      <Project>{b4576e58-15d9-4d59-baec-13db4bb32cb8}</Project>
+      <Name>ServerDES.Topology.Microservice</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

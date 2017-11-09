@@ -106,9 +106,11 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IMailSimulationService.cs" />
+    <Compile Include="Contracts\IMailScenarioService.cs" />
+    <Compile Include="Contracts\IMailTopologyService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Proxies\MailSimulationProxy.cs" />
+    <Compile Include="Proxies\MailScenarioProxy.cs" />
+    <Compile Include="Proxies\MailTopologyProxy.cs" />
     <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\SimulationInputService.cs" />
   </ItemGroup>

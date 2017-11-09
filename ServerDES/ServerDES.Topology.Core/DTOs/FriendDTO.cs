@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace AnnoyingEmailsDES.Client.Domain.DTOs
+namespace ServerDES.Topology.Core.DTOs
 {
     /*
      * Friend Data Transfer Object.
