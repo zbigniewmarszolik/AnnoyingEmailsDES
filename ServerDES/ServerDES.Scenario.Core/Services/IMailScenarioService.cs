@@ -1,5 +1,6 @@
 ﻿using ServerDES.Scenario.Core.DTOs;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Core.Services
 {
@@ -7,6 +8,6 @@ namespace ServerDES.Scenario.Core.Services
     public interface IMailScenarioService
     {
         [OperationContract]
-        MailDTO ProvideScenarioInput();
+        Task<MailDTO> ProvideScenarioInputAsync();
     }
 }

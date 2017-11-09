@@ -1,5 +1,6 @@
 ﻿using AnnoyingEmailsDES.Client.Domain.DTOs;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace AnnoyingEmailsDES.Client.Services.Contracts
 {
@@ -10,6 +11,6 @@ namespace AnnoyingEmailsDES.Client.Services.Contracts
     public interface IMailScenarioService
     {
         [OperationContract]
-        MailDTO ProvideScenarioInput();
+        Task<MailDTO> ProvideScenarioInputAsync();
     }
 }

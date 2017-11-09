@@ -4,6 +4,7 @@ using ServerDES.Topology.Core.Services;
 using AutoMapper;
 using ServerDES.Topology.Core.Businesses;
 using ServerDES.Topology.Core.Models;
+using System.Threading.Tasks;
 
 namespace ServerDES.Topology.Microservice.Services
 {
@@ -18,9 +19,9 @@ namespace ServerDES.Topology.Microservice.Services
             _mapper = mapper;
         }
 
-        public IList<FriendDTO> ProvideTopologyInput()
+        public async Task<IList<FriendDTO>> ProvideTopologyInputAsync()
         {
-            var topologySet = _topologyBusiness.GetAndPrepareTopology();
+            var topologySet = await _topologyBusiness.GetAndPrepareTopologyAsync();
 
             IList<FriendDTO> friendDtos = new List<FriendDTO>();
 

@@ -1,9 +1,10 @@
 ﻿using ServerDES.Scenario.Core.Models;
+using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Core.Businesses
 {
     public interface IScenarioBusiness
     {
-        Mail GetAndPrepareFirstScenario();
+        Task<Mail> GetAndPrepareFirstScenarioAsync();
     }
 }

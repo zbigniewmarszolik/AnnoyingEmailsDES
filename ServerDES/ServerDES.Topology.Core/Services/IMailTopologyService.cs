@@ -1,6 +1,7 @@
 ﻿using ServerDES.Topology.Core.DTOs;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace ServerDES.Topology.Core.Services
 {
@@ -8,6 +9,6 @@ namespace ServerDES.Topology.Core.Services
     public interface IMailTopologyService
     {
         [OperationContract]
-        IList<FriendDTO> ProvideTopologyInput();
+        Task<IList<FriendDTO>> ProvideTopologyInputAsync();
     }
 }

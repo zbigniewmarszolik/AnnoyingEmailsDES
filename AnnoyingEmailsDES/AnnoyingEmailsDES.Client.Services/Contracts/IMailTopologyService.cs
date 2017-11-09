@@ -1,6 +1,7 @@
 ﻿using AnnoyingEmailsDES.Client.Domain.DTOs;
 using System.Collections.Generic;
 using System.ServiceModel;
+using System.Threading.Tasks;
 
 namespace AnnoyingEmailsDES.Client.Services.Contracts
 {
@@ -11,6 +12,6 @@ namespace AnnoyingEmailsDES.Client.Services.Contracts
     public interface IMailTopologyService
     {
         [OperationContract]
-        IList<FriendDTO> ProvideTopologyInput();
+        Task<IList<FriendDTO>> ProvideTopologyInputAsync();
     }
 }

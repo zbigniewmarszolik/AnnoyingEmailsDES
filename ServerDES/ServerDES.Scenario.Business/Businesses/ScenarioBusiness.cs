@@ -1,6 +1,7 @@
 ﻿using ServerDES.Scenario.Core.Businesses;
 using ServerDES.Scenario.Core.Managers;
 using ServerDES.Scenario.Core.Models;
+using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Business.Businesses
 {
@@ -13,9 +14,14 @@ namespace ServerDES.Scenario.Business.Businesses
             _scenarioFileManager = scenarioFileManager;
         }
 
-        public Mail GetAndPrepareFirstScenario()
+        public async Task<Mail> GetAndPrepareFirstScenarioAsync()
         {
-            var unparsedMsgData = _scenarioFileManager.LoadScenarioInput();
+            string[] unparsedMsgData = null;
+
+            await Task.Run(() =>
+            {
+                unparsedMsgData = _scenarioFileManager.LoadScenarioInput();
+            });
 
             var originalSenderId = 0;
             var originalReceiverId = 0;

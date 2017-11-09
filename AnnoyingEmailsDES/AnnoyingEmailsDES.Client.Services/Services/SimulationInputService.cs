@@ -40,19 +40,16 @@ namespace AnnoyingEmailsDES.Client.Services.Services
             IList<FriendDTO> dtos = null;
             IList<Friend> models = new List<Friend>();
 
-            await Task.Run(() =>
+            try
             {
-                try
-                {
-                    dtos = client.ProvideTopologyInput();
-                }
-                catch(Exception e)
-                {
-                    ServerErrorAction();
-                }
-            });
+                dtos = await client.ProvideTopologyInputAsync();
+            }
+            catch (Exception e)
+            {
+                ServerErrorAction();
+            }
 
-            foreach(var item in dtos)
+            foreach (var item in dtos)
             {
                 var model = _friendsMapping.DataTransferObjectToModel(item);
 
@@ -68,17 +65,14 @@ namespace AnnoyingEmailsDES.Client.Services.Services
 
             MailDTO dto = null;
 
-            await Task.Run(() =>
+            try
             {
-                try
-                {
-                    dto = client.ProvideScenarioInput();
-                }
-                catch(Exception e)
-                {
-                    ServerErrorAction();
-                }
-            });
+                dto = await client.ProvideScenarioInputAsync();
+            }
+            catch (Exception e)
+            {
+                ServerErrorAction();
+            }
 
             var model = _mailsMapping.DataTransferObjectToModel(dto);
 

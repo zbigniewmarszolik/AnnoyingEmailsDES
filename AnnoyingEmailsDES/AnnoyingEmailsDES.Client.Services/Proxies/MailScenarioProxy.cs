@@ -1,6 +1,7 @@
 ﻿using AnnoyingEmailsDES.Client.Services.Contracts;
 using System.ServiceModel;
 using AnnoyingEmailsDES.Client.Domain.DTOs;
+using System.Threading.Tasks;
 
 namespace AnnoyingEmailsDES.Client.Services.Proxies
 {
@@ -12,9 +13,9 @@ namespace AnnoyingEmailsDES.Client.Services.Proxies
         public MailScenarioProxy(BasicHttpBinding binding, EndpointAddress remoteAddress) : base(binding, remoteAddress)
         { }
 
-        public MailDTO ProvideScenarioInput()
+        public Task<MailDTO> ProvideScenarioInputAsync()
         {
-            return base.Channel.ProvideScenarioInput();
+            return base.Channel.ProvideScenarioInputAsync();
         }
     }
 }

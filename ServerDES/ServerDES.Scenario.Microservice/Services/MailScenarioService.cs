@@ -3,6 +3,7 @@ using ServerDES.Scenario.Core.Businesses;
 using ServerDES.Scenario.Core.DTOs;
 using ServerDES.Scenario.Core.Models;
 using ServerDES.Scenario.Core.Services;
+using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Microservice.Services
 {
@@ -17,9 +18,9 @@ namespace ServerDES.Scenario.Microservice.Services
             _mapper = mapper;
         }
 
-        public MailDTO ProvideScenarioInput()
+        public async Task<MailDTO> ProvideScenarioInputAsync()
         {
-            var mailScenario = _scenarioBusiness.GetAndPrepareFirstScenario();
+            var mailScenario = await _scenarioBusiness.GetAndPrepareFirstScenarioAsync();
 
             var mailDto = _mapper.Map<Mail, MailDTO>(mailScenario);
 

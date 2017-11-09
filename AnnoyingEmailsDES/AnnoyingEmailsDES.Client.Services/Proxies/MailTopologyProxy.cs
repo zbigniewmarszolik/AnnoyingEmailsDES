@@ -2,6 +2,7 @@
 using System.ServiceModel;
 using AnnoyingEmailsDES.Client.Domain.DTOs;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AnnoyingEmailsDES.Client.Services.Proxies
 {
@@ -13,9 +14,9 @@ namespace AnnoyingEmailsDES.Client.Services.Proxies
         public MailTopologyProxy(BasicHttpBinding binding, EndpointAddress remoteAddress) : base(binding, remoteAddress)
         { }
 
-        public IList<FriendDTO> ProvideTopologyInput()
+        public Task<IList<FriendDTO>> ProvideTopologyInputAsync()
         {
-            return base.Channel.ProvideTopologyInput();
+            return Channel.ProvideTopologyInputAsync();
         }
     }
 }
