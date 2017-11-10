@@ -8,12 +8,10 @@ namespace AnnoyingEmailsDES.Client.Services.Services
     public abstract class ServiceBase
     {
         protected BasicHttpBinding Binding { get; set; }
-        protected EndpointAddress Address { get; set; }
 
         public ServiceBase()
         {
             Binding = new BasicHttpBinding();
-            Address = new EndpointAddress("http://localhost:8000/AnnoyingEmailsDesService/");
         }
     }
 }

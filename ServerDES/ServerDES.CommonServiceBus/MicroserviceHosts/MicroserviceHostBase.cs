@@ -12,7 +12,7 @@ namespace ServerDES.CommonServiceBus.MicroserviceHosts
         public MicroserviceHostBase()
         {
             BasicBinding = new BasicHttpBinding();
-            BasicBinding.Name = "DefaultBinding";
+            BasicBinding.Name = "DefaultBasicBinding";
             BasicBinding.HostNameComparisonMode = HostNameComparisonMode.StrongWildcard;
             BasicBinding.Security.Mode = BasicHttpSecurityMode.None;
         }

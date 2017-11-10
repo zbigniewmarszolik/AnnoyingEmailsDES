@@ -13,13 +13,14 @@ namespace ServerDES.CommonServiceBus.MicroserviceHosts
         private readonly IContainer _container;
 
         private Uri _baseAddress;
-        private Uri _endpointAddress;
         private ServiceHost _serviceHost;
+
+        public Uri EndpointAddress { get; private set; }
 
         public MailScenarioHost(IContainer container) : base()
         {
             _baseAddress = new Uri("http://localhost:8001/");
-            _endpointAddress = new Uri(_baseAddress + "AnnoyingEmailsScenario/");
+            EndpointAddress = new Uri(_baseAddress + "AnnoyingEmailsScenario/");
 
             _container = container;
         }
@@ -28,7 +29,7 @@ namespace ServerDES.CommonServiceBus.MicroserviceHosts
         {
             _serviceHost = new ServiceHost(typeof(MailScenarioService), _baseAddress);
 
-            _serviceHost.AddServiceEndpoint(typeof(IMailScenarioService), BasicBinding, _endpointAddress);
+            _serviceHost.AddServiceEndpoint(typeof(IMailScenarioService), BasicBinding, EndpointAddress);
             _serviceHost.AddDependencyInjectionBehavior<IMailScenarioService>(_container);
 
             _serviceHost.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));

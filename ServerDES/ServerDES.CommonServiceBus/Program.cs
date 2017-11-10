@@ -11,13 +11,19 @@ namespace ServerDES.CommonServiceBus
             var container = startup.ConfigureContainer();
 
             var mailTopologyHost = new MailTopologyHost(container);
+            var mailScenarioHost = new MailScenarioHost(container);
+
+            var mailTopologyUrl = mailTopologyHost.EndpointAddress;
+            var mailScenarioUrl = mailScenarioHost.EndpointAddress;
+
             mailTopologyHost.OpenHost();
             Console.WriteLine(" -- > Mail topology microservice is ready.");
+            Console.WriteLine(" -- > URL: " + mailTopologyUrl);
             Console.WriteLine();
-
-            var mailScenarioHost = new MailScenarioHost(container);
+            
             mailScenarioHost.OpenHost();
             Console.WriteLine(" -- > Mail scenario microservice is ready.");
+            Console.WriteLine(" -- > URL: " + mailScenarioUrl);
             Console.WriteLine();
 
             Console.WriteLine();

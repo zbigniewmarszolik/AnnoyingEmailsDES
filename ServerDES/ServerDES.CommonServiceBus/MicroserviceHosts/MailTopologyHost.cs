@@ -13,13 +13,14 @@ namespace ServerDES.CommonServiceBus.MicroserviceHosts
         private readonly IContainer _container;
 
         private Uri _baseAddress;
-        private Uri _endpointAddress;
         private ServiceHost _serviceHost;
+
+        public Uri EndpointAddress { get; private set; }
 
         public MailTopologyHost(IContainer container) : base()
         {
             _baseAddress = new Uri("http://localhost:8000/");
-            _endpointAddress = new Uri(_baseAddress + "AnnoyingEmailsTopology/");
+            EndpointAddress = new Uri(_baseAddress + "AnnoyingEmailsTopology/");
 
             _container = container;
         }
@@ -28,7 +29,7 @@ namespace ServerDES.CommonServiceBus.MicroserviceHosts
         {
             _serviceHost = new ServiceHost(typeof(MailTopologyService), _baseAddress);
 
-            _serviceHost.AddServiceEndpoint(typeof(IMailTopologyService), BasicBinding, _endpointAddress);
+            _serviceHost.AddServiceEndpoint(typeof(IMailTopologyService), BasicBinding, EndpointAddress);
             _serviceHost.AddDependencyInjectionBehavior<IMailTopologyService>(_container);
 
             _serviceHost.Description.Behaviors.Remove(typeof(ServiceDebugBehavior));

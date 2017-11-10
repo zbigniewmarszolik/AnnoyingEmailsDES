@@ -49,6 +49,8 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
             {
                 var simulation = _simulationsMapping.EntityToModel(item);
 
+                simulation.SimulationDate = simulation.SimulationDate.ToLocalTime();
+
                 foreach(var m in simulation.Mails)
                 {
                     m.ReceiverValue = _mailsHelper.SetReceiverValue(m.ReceiverId);
