@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.WebHost", "SignalRDES.WebHost\SignalRDES.WebHost.csproj", "{3D3D9CE0-A9AF-47B1-B786-48D2813A1D46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.Data", "SignalRDES.Data\SignalRDES.Data.csproj", "{1E6D3640-4DFA-4A7A-ACE7-73F1D8A1CC91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.Business", "SignalRDES.Business\SignalRDES.Business.csproj", "{D255EFC0-3C68-41F4-B4FA-CE44B7922675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.Service", "SignalRDES.Service\SignalRDES.Service.csproj", "{92C865DC-ADDA-4D3D-8E13-386374760C01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.Installer", "SignalRDES.Installer\SignalRDES.Installer.csproj", "{4A00228E-1F80-46DB-A725-04B46B426F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDES.Core", "SignalRDES.Core\SignalRDES.Core.csproj", "{2E21DD11-04EB-40C0-B0A6-7990F5AFF61B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +25,26 @@ Global
 		{3D3D9CE0-A9AF-47B1-B786-48D2813A1D46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D3D9CE0-A9AF-47B1-B786-48D2813A1D46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D3D9CE0-A9AF-47B1-B786-48D2813A1D46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E6D3640-4DFA-4A7A-ACE7-73F1D8A1CC91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E6D3640-4DFA-4A7A-ACE7-73F1D8A1CC91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E6D3640-4DFA-4A7A-ACE7-73F1D8A1CC91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E6D3640-4DFA-4A7A-ACE7-73F1D8A1CC91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D255EFC0-3C68-41F4-B4FA-CE44B7922675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D255EFC0-3C68-41F4-B4FA-CE44B7922675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D255EFC0-3C68-41F4-B4FA-CE44B7922675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D255EFC0-3C68-41F4-B4FA-CE44B7922675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C865DC-ADDA-4D3D-8E13-386374760C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C865DC-ADDA-4D3D-8E13-386374760C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C865DC-ADDA-4D3D-8E13-386374760C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C865DC-ADDA-4D3D-8E13-386374760C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A00228E-1F80-46DB-A725-04B46B426F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A00228E-1F80-46DB-A725-04B46B426F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A00228E-1F80-46DB-A725-04B46B426F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A00228E-1F80-46DB-A725-04B46B426F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E21DD11-04EB-40C0-B0A6-7990F5AFF61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E21DD11-04EB-40C0-B0A6-7990F5AFF61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E21DD11-04EB-40C0-B0A6-7990F5AFF61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E21DD11-04EB-40C0-B0A6-7990F5AFF61B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

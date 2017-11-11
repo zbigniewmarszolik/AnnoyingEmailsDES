@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 
 namespace AnnoyingEmailsDES.Client.UWP.ViewModels
@@ -118,6 +120,8 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
 
             _simulationsRepository.DatabaseErrorAction = DbError;
             _simulationInputService.ServerErrorAction = SrvError;
+            _simulationInputService.TopologyResponseSignalR = OnTopologyReceived;
+            _simulationInputService.ScenarioResponseSignalR = OnScenarioReceived;
 
             _receivers = new List<Friend>();
             _mailEvents = new List<Mail>();
@@ -148,10 +152,34 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
             HistoryAction(historyViewModel);
         }
 
-        //Connecting to the server to obtain topology and scenario inputs for the simulation.
+        //Connecting to the server to obtain topology and scenario inputs for the simulation (2 versions below):
+
+        // -> SignalR version:
+        /*
+        private void OnDownloadClicked()
+        {
+            IsHistoryEnabled = false;
+            IsDownloadEnabled = false;
+            IsEventRunning = true;
+
+            try
+            {
+                _simulationInputService.QueryTopology();
+            }
+            catch (Exception e)
+            {
+                InitEnableValues();
+                SrvError();
+            }
+        }
+        */
+
+        // -> WCF version:
+
         private async void OnDownloadClicked()
         {
             IsHistoryEnabled = false;
+            IsDownloadEnabled = false;
             IsEventRunning = true;
 
             try
@@ -159,13 +187,11 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
                 _friendsGroup = await _simulationInputService.GetAllGroupMembers();
                 _firstMail = await _simulationInputService.GetStartingScenario();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 InitEnableValues();
                 return;
             }
-
-            IsDownloadEnabled = false;
 
             for (var i = 0; i < _friendsGroup.Count; i++)
             {
@@ -289,6 +315,38 @@ namespace AnnoyingEmailsDES.Client.UWP.ViewModels
         private void SrvError()
         {
             ConnectionErrorAction();
+        }
+
+        //Method handling topology response from SignalR server.
+        private void OnTopologyReceived(IList<Friend> friends)
+        {
+            _friendsGroup = new List<Friend>();
+
+            foreach (var item in friends)
+            {
+                _friendsGroup.Add(item);
+            }
+
+            for (var i = 0; i < _friendsGroup.Count; i++)
+            {
+                _friendsGroup[i] = _friendsHelper.AssignFriendProperties(_friendsGroup[i]);
+            }
+
+            _simulationInputService.QueryScenario();
+        }
+
+        //Method handling scenario response from SignalR server.
+        private async void OnScenarioReceived(Mail mail)
+        {
+            _firstMail = mail;
+
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                () =>
+                {
+                    IsHistoryEnabled = true;
+                    IsEventRunning = false;
+                    IsStartEnabled = true;
+                });
         }
     }
 }

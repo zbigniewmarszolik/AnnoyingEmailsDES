@@ -7,15 +7,21 @@ using System.Threading.Tasks;
 using System;
 using System.ServiceModel;
 using AnnoyingEmailsDES.Client.Services.Proxies;
+using AnnoyingEmailsDES.Client.Services.SignalR;
+using Microsoft.AspNet.SignalR.Client;
 
 namespace AnnoyingEmailsDES.Client.Services.Services
 {
     /*
-     * Implementation of SimulationInputService (communication with WCF server).
+     * Implementation of SimulationInputService (communication with WCF server and with SignalR server).
      */
     public class SimulationInputService : ServiceBase, ISimulationInputService
     {
         public Action ServerErrorAction { get; set; }
+        public Action<IList<Friend>> TopologyResponseSignalR { get; set; }
+        public Action<Mail> ScenarioResponseSignalR { get; set; }
+
+        private readonly SignalRProvider _signalRProvider = SignalRProvider.Instance;
 
         private EndpointAddress _topologyEndpointAddress;
         private EndpointAddress _scenarioEndpointAddress;
@@ -31,6 +37,19 @@ namespace AnnoyingEmailsDES.Client.Services.Services
 
             _topologyEndpointAddress = new EndpointAddress("http://localhost:8000/AnnoyingEmailsTopology/");
             _scenarioEndpointAddress = new EndpointAddress("http://localhost:8001/AnnoyingEmailsScenario/");
+
+            _signalRProvider.Proxy.On("GetTopology", (IList<Friend> response) => TopologyResponseSignalR(response));
+            _signalRProvider.Proxy.On("GetScenario", (Mail response) => ScenarioResponseSignalR(response));
+        }
+
+        public void QueryTopology()
+        {
+            _signalRProvider.Invoke("SendTopologyInput");
+        }
+
+        public void QueryScenario()
+        {
+            _signalRProvider.Invoke("SendScenarioInput");
         }
 
         public async Task<IList<Friend>> GetAllGroupMembers()

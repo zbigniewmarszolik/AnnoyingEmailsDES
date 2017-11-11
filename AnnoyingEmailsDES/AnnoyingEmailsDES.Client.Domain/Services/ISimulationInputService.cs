@@ -11,8 +11,13 @@ namespace AnnoyingEmailsDES.Client.Domain.Services
     public interface ISimulationInputService
     {
         Action ServerErrorAction { get; set; }
+        Action<IList<Friend>> TopologyResponseSignalR { get; set; }
+        Action<Mail> ScenarioResponseSignalR { get; set; }
 
         Task<IList<Friend>> GetAllGroupMembers();
         Task<Mail> GetStartingScenario();
+
+        void QueryTopology();
+        void QueryScenario();
     }
 }
