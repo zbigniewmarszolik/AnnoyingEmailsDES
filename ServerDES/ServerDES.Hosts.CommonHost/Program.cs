@@ -1,8 +1,11 @@
-﻿using ServerDES.CommonServiceBus.MicroserviceHosts;
+﻿using ServerDES.Hosts.CommonHost.ServiceHosts;
 using System;
 
-namespace ServerDES.CommonServiceBus
+namespace ServerDES.Hosts.CommonHost
 {
+    /*
+     * Program class with Main method which starts the application.
+     */
     class Program
     {
         static void Main(string[] args)
@@ -20,7 +23,7 @@ namespace ServerDES.CommonServiceBus
             Console.WriteLine(" -- > Mail topology microservice is ready.");
             Console.WriteLine(" -- > URL: " + mailTopologyUrl);
             Console.WriteLine();
-            
+
             mailScenarioHost.OpenHost();
             Console.WriteLine(" -- > Mail scenario microservice is ready.");
             Console.WriteLine(" -- > URL: " + mailScenarioUrl);

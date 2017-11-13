@@ -4,6 +4,9 @@ using ServerDES.Scenario.Core.Businesses;
 
 namespace ServerDES.Scenario.Installer.Modules
 {
+    /*
+     * Autofac module for business layer of scenario.
+     */
     public class ScenarioBusinessModule : Module
     {
         protected override void Load(ContainerBuilder builder)

@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AnnoyingEmailsDES.Client.UWP.Views
 {
+    /*
+     * HistoryView code behind.
+     */
     public sealed partial class HistoryView : Page
     {
         public HistoryView()

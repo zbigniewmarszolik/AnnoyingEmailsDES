@@ -6,6 +6,9 @@ using SignalRDES.Core.Managers;
 
 namespace SignalRDES.Business.Businesses
 {
+    /*
+     * MailSimulatorBusiness's implementation.
+     */
     public class MailSimulatorBusiness : IMailSimulatorBusiness
     {
         private readonly IMailSimulatorFileManager _fileManager;

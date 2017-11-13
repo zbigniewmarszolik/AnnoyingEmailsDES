@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace ServerDES.Scenario.Data.Managers
 {
+    /*
+     * ScenarioFileManager's implementation.
+     */
     public class ScenarioFileManager : IScenarioFileManager
     {
         public string[] LoadScenarioInput()

@@ -6,9 +6,12 @@ using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 
-namespace ServerDES.CommonServiceBus.MicroserviceHosts
+namespace ServerDES.Hosts.CommonHost.ServiceHosts
 {
-    public class MailScenarioHost : MicroserviceHostBase
+    /*
+     * MailScenarioService endpoint.
+     */
+    public class MailScenarioHost : ServiceHostBase
     {
         private readonly IContainer _container;
 

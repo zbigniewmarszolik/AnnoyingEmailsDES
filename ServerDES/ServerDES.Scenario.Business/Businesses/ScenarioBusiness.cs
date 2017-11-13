@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Business.Businesses
 {
+    /*
+     * ScenarioBusiness's implementation.
+     */
     public class ScenarioBusiness : IScenarioBusiness
     {
         private readonly IScenarioFileManager _scenarioFileManager;

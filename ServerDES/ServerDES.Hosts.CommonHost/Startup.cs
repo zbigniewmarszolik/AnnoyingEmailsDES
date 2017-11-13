@@ -1,10 +1,13 @@
 ﻿using Autofac;
-using ServerDES.CommonServiceBus.Modules;
 using AutoMapper;
-using ServerDES.CommonServiceBus.Factories;
+using ServerDES.Hosts.CommonHost.Factories;
+using ServerDES.Hosts.CommonHost.Modules;
 
-namespace ServerDES.CommonServiceBus
+namespace ServerDES.Hosts.CommonHost
 {
+    /*
+     * Startup class - configuration of Autofac IoC container and AutoMapper.
+     */
     public class Startup
     {
         public IContainer ConfigureContainer()

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ServerDES.Topology.Microservice.Services
 {
+    /*
+     * MailTopologyService contract's implementation.
+     */
     public class MailTopologyService : IMailTopologyService
     {
         private readonly ITopologyBusiness _topologyBusiness;

@@ -4,6 +4,9 @@ using Unity;
 
 namespace SignalRDES.Installer.Components
 {
+    /*
+     * Business layer registrations in UnityContainer.
+     */
     public class BusinessComponent
     {
         public IUnityContainer Register(IUnityContainer container)

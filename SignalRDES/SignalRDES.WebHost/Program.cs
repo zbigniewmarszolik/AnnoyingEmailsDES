@@ -3,6 +3,9 @@ using System;
 
 namespace SignalRDES.WebHost
 {
+    /*
+     * Program class containing Main method that starts the server application.
+     */
     class Program
     {
         static void Main(string[] args)

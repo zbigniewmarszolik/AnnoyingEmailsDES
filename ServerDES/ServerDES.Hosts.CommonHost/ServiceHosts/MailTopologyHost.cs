@@ -6,9 +6,12 @@ using System;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 
-namespace ServerDES.CommonServiceBus.MicroserviceHosts
+namespace ServerDES.Hosts.CommonHost.ServiceHosts
 {
-    public class MailTopologyHost : MicroserviceHostBase
+    /*
+     * MailTopologyService endpoint.
+     */
+    public class MailTopologyHost : ServiceHostBase
     {
         private readonly IContainer _container;
 

@@ -3,6 +3,9 @@ using SignalRDES.Core.Services;
 
 namespace SignalRDES.WebHost.Hubs
 {
+    /*
+     * Hub (SignalR endpoint) for MailSimulator.
+     */
     public class MailSimulatorHub : Hub
     {
         private readonly IMailSimulatorService _mailSimulatorService;

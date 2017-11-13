@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AnnoyingEmailsDES.Client.UWP
 {
+    /*
+     * App class - initializes the application.
+     */
     sealed partial class App : Application
     {
         private IContainer _container { get; set; }

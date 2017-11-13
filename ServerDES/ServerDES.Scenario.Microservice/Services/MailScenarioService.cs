@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ServerDES.Scenario.Microservice.Services
 {
+    /*
+     * MailScenarioService contract's implementation.
+     */
     public class MailScenarioService : IMailScenarioService
     {
         private readonly IScenarioBusiness _scenarioBusiness;

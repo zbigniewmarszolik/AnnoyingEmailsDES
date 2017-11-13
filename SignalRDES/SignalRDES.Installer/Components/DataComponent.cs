@@ -4,6 +4,9 @@ using Unity;
 
 namespace SignalRDES.Installer.Components
 {
+    /*
+     * Data layer registrations in UnityContainer.
+     */
     public class DataComponent
     {
         public IUnityContainer Register(IUnityContainer container)

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ServerDES.Topology.Business.Businesses
 {
+    /*
+     * TopologyBusiness's implementation.
+     */
     public class TopologyBusiness : ITopologyBusiness
     {
         private readonly ITopologyFileManager _topologyFileManager;

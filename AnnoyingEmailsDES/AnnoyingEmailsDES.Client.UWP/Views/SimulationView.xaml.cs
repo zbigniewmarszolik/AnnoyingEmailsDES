@@ -8,6 +8,9 @@ using Windows.UI.Xaml.Navigation;
 
 namespace AnnoyingEmailsDES.Client.UWP.Views
 {
+    /*
+     * SimulationView code behind.
+     */
     public sealed partial class SimulationView : Page
     {
         public SimulationView()

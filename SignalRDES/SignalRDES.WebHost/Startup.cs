@@ -8,6 +8,9 @@ using SignalRDES.Core.Services;
 
 namespace SignalRDES.WebHost
 {
+    /*
+     * Startup - configuration of UnityContainer and mapping SignalR hubs.
+     */
     public class Startup
     {
         private IUnityContainer _container;

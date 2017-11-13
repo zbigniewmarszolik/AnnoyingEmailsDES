@@ -4,7 +4,7 @@ using ServerDES.Scenario.Core.Models;
 using ServerDES.Topology.Core.DTOs;
 using ServerDES.Topology.Core.Models;
 
-namespace ServerDES.CommonServiceBus.Factories
+namespace ServerDES.Hosts.CommonHost.Factories
 {
     /*
      * AutoMapper factory.

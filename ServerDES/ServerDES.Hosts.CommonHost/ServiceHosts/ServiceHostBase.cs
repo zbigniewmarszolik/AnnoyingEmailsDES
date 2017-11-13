@@ -1,15 +1,15 @@
 ﻿using System.ServiceModel;
 
-namespace ServerDES.CommonServiceBus.MicroserviceHosts
+namespace ServerDES.Hosts.CommonHost.ServiceHosts
 {
     /*
-     * Base class for other MicroserviceHost classes.
+     * Base class for other ServiceHost classes.
      */
-    public abstract class MicroserviceHostBase
+    public class ServiceHostBase
     {
         protected BasicHttpBinding BasicBinding;
 
-        public MicroserviceHostBase()
+        public ServiceHostBase()
         {
             BasicBinding = new BasicHttpBinding();
             BasicBinding.Name = "DefaultBasicBinding";

@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace SignalRDES.Data.Managers
 {
+    /*
+     * MailSimulatorFileManager's implementation.
+     */
     public class MailSimulatorFileManager : IMailSimulatorFileManager
     {
         public IList<string[]> LoadTopologyInput()

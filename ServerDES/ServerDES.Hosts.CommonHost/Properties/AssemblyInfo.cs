@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ServerDES.CommonServiceBus")]
+[assembly: AssemblyTitle("ServerDES.Hosts.CommonHost")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ServerDES.CommonServiceBus")]
+[assembly: AssemblyProduct("ServerDES.Hosts.CommonHost")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b5a8cf44-cc4d-4cf8-933f-e3b12cf81b3b")]
+[assembly: Guid("dfb00607-d476-4701-b089-3442ebd03c05")]
 
 // Version information for an assembly consists of the following four values:
 //

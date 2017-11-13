@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B5A8CF44-CC4D-4CF8-933F-E3B12CF81B3B}</ProjectGuid>
+    <ProjectGuid>{DFB00607-D476-4701-B089-3442EBD03C05}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ServerDES.CommonServiceBus</RootNamespace>
-    <AssemblyName>ServerDES.CommonServiceBus</AssemblyName>
+    <RootNamespace>ServerDES.Hosts.CommonHost</RootNamespace>
+    <AssemblyName>ServerDES.Hosts.CommonHost</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -38,8 +38,8 @@
     <Reference Include="Autofac.Integration.Wcf, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.Wcf.4.0.0\lib\net45\Autofac.Integration.Wcf.dll</HintPath>
     </Reference>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.0\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,13 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\AutoMapperFactory.cs" />
-    <Compile Include="MicroserviceHosts\MailScenarioHost.cs" />
-    <Compile Include="MicroserviceHosts\MailTopologyHost.cs" />
-    <Compile Include="MicroserviceHosts\MicroserviceHostBase.cs" />
     <Compile Include="Modules\ScenarioModule.cs" />
     <Compile Include="Modules\TopologyModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceHosts\MailScenarioHost.cs" />
+    <Compile Include="ServiceHosts\MailTopologyHost.cs" />
+    <Compile Include="ServiceHosts\ServiceHostBase.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +96,5 @@
       <Name>ServerDES.Topology.Microservice</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

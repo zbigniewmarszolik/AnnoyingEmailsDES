@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace ServerDES.Topology.Data.Managers
 {
+    /*
+     * TopologyFileManager's implementation.
+     */
     public class TopologyFileManager : ITopologyFileManager
     {
         public IList<string[]> LoadFriendsTopology()

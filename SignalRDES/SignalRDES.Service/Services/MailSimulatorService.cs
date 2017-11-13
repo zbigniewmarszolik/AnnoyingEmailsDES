@@ -5,6 +5,9 @@ using SignalRDES.Core.DataTransferObjects;
 
 namespace SignalRDES.Service.Services
 {
+    /*
+     * MailSimulatorService's implementation.
+     */
     public class MailSimulatorService : IMailSimulatorService
     {
         private readonly IMailSimulatorBusiness _mailSimulatorBusiness;
