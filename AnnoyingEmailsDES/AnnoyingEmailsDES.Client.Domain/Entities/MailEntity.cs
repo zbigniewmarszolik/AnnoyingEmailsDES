@@ -17,7 +17,7 @@ namespace AnnoyingEmailsDES.Client.Domain.Entities
         public int SenderId { get; set; }
         public int ReceiverId { get; set; }
 
-        [OneToOne]
+        [ManyToOne]
         public SimulationEntity Simulation { get; set; }
 
         [ForeignKey(typeof(SimulationEntity))]
